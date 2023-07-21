@@ -97,7 +97,9 @@ class PostController {
 
     let nick = "";
     User.findById(req.user.id).then((user, err) => {
-      nick = `${user?.name} ${user?.surname}`;
+      if (user) {
+        nick = `${user.name} ${user.surname}`;
+      }
       console.log(nick);
       const newContent = new Comment({
         content,
