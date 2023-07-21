@@ -21,7 +21,7 @@ class PostController {
     let nick = "";
     User.findById(req.user.id).then((user, err) => {
       if (user) {
-        nick = `${user?.name} ${user?.surname}`;
+        nick = `${user.name} ${user.surname}`;
       }
       console.log(nick);
       const newPost = new Posts({
