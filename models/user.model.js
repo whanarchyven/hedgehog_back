@@ -28,7 +28,7 @@ const userSchema = new Schema({
     exp:{
         type:Number,
         required:true,
-        default:0
+        default:50
     },
     password: {
         type: String,

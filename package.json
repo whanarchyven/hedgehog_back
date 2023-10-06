@@ -20,10 +20,8 @@
     "https": "^1.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2",
+    "nodemon": "^3.0.1",
     "serverless-http": "^3.2.0",
     "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
   }
 }

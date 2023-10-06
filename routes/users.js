@@ -5,6 +5,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 import fileService from "../services/fileService.js";
+import auth from "../middleware/auth.js";
+import UserController from "../controllers/UserController.js";
 
 function generateAccessToken(id, username) {
     return jwt.sign({ id, username }, 'a29fa2a6b70a36a032c8f5cfeabe852aa77551aad154da1b2da579ac161d41bcd978aad1223d0d86bf5c4e8e5a017a434f84cd5c5d8c00573117a8b7bb18a0eb', {
@@ -71,5 +73,7 @@ userRouter.route("/login").post((req, res) => {
         }
     });
 });
+
+userRouter.route('/:id').get(UserController.getUser);
 
 export default userRouter
