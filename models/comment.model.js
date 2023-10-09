@@ -13,7 +13,8 @@ const commentSchema = new Schema({
     },
     nickname:{
         type:String
-    }
+    },
+
 });
 
 const Comment = mongoose.model("Comment", commentSchema);

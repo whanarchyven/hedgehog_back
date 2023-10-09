@@ -7,9 +7,12 @@ import fileUpload from "express-fileupload";
 import postsRouter from "./routes/posts.js";
 import userRouter from "./routes/users.js";
 import commentRouter from "./routes/comment.js";
+import placesRouter from "./routes/places.js";
 
 import * as fs from "fs";
 import * as https from "https";
+import tourRoutes from "./routes/tourRoutes.js";
+import tourRoutesRouter from "./routes/tourRoutes.js";
 
 const app = express();
 
@@ -35,6 +38,8 @@ connection.once("open", () => {
 app.use("/posts", postsRouter);
 app.use("/users", userRouter);
 app.use("/comments", commentRouter);
+app.use("/places",placesRouter);
+app.use('/tours/',tourRoutesRouter)
 // app.use('/static', express.static('public'));
 app.use(express.static("static"));
 app.listen(port, () => {
