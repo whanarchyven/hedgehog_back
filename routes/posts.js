@@ -6,7 +6,7 @@ import PostController from "../controllers/PostController.js";
 const postsRouter=new Router()
 
 // get all post
-postsRouter.get("/", auth, PostController.getAll);
+postsRouter.get("/", PostController.getAll);
 
 // get a post
 postsRouter.route("/:id").get(auth, PostController.getPost);
