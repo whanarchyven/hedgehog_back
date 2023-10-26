@@ -7,9 +7,24 @@ import posts from "../routes/posts.js";
 class PostController {
     //get all posts
     async getAll(req, res) {
+        const query=req.query
+        console.log(query)
         Posts.find()
             .sort({date: -1})
-            .then((posts) => res.json(posts))
+            .then(async (posts) => {
+                const filteredPosts = await posts.filter((info)=>{
+                    let isValid = true;
+                    for(let key in query) {
+                        console.log(key)
+                        console.log(query[key])
+                        console.log(info[key])
+                        isValid = isValid && info[key].includes(query[key]);
+                    }
+                    return isValid;
+                });
+                console.log(filteredPosts)
+                res.json(filteredPosts)
+            })
             .catch((err) => res.status(400).json("error: " + err));
     }
 
