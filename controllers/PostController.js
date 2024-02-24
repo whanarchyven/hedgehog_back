@@ -9,9 +9,7 @@ class PostController {
     async getAll(req, res) {
         const query=req.query
         console.log(query)
-        Posts.find({date:{
-                $gte: new Date(new Date() - 1 * 60 * 60 * 24 * 1000)
-            }})
+        Posts.find({})
             .sort({date: -1})
             .then(async (posts) => {
                 const filteredPosts = await posts.filter((info)=>{
