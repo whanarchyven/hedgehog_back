@@ -9,10 +9,11 @@ class PostController {
     async getAll(req, res) {
         const query=req.query
         console.log(query)
-        Posts.find()
+        Posts.find({})
             .sort({date: -1})
             .then(async (posts) => {
                 const filteredPosts = await posts.filter((info)=>{
+
                     let isValid = true;
                     for(let key in query) {
                         console.log(key)
