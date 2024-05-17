@@ -12,11 +12,11 @@ class PlaceController {
         let totalFileNameArr = [];
         keys.map((key) => {
             const fileName = fileService.saveFile(req.files[key]);
-            console.log(req.files[key]);
+            console.log(req.files[key],'FILE');
             totalFileNameArr.push(fileName);
         })
         let totalFileName = totalFileNameArr.join('|');
-        console.log(totalFileName);
+        console.log(totalFileName,'TOTAL NAME');
 
         const newPlace = new Place({
             name,
