@@ -16,6 +16,7 @@ class PlaceController {
             totalFileNameArr.push(fileName);
         })
         let totalFileName = totalFileNameArr.join('|');
+        console.log(totalFileName);
 
         const newPlace = new Place({
             name,
